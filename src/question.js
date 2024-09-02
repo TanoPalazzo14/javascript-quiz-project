@@ -15,33 +15,10 @@ class Question {
     }
     shuffleChoices(){
         const nuevaLista = []
-        while (this.choices.length>0){
-            console.log(this.choices)
-            nuevaLista.push(this.choices.splice(Math.floor(Math.random()*this.choices.length)[0],1))
+        const copyOriginal = this.choices.slice(0)
+        while (copyOriginal.length>0){
+            nuevaLista.push((copyOriginal.splice(Math.floor(Math.random()*copyOriginal.length),1))[0])
         }
         this.choices = nuevaLista
     }
 }
-
-let q1 = new Question ("question", ["choice1","choice2","choice3","choice4"], "ans", 2.3)
-console.log(q1)
-q1.shuffleChoices()
-console.log(q1)
-
-
-
-
-
-
-
-
-
-
-
-// const arrOriginal = [1,2,3,4,5,6,7,8,9,10,]
-// const nuevaLista =[]
-// while (arrOriginal.length>0){
-//     console.log(arrOriginal)
-//     nuevaLista.push(arrOriginal.splice(Math.floor(Math.random()*arrOriginal.length),1))
-// }
-// console.log(nuevaLista)

@@ -1,15 +1,43 @@
 class Quiz {
     // YOUR CODE HERE:
     //
-    // 1. constructor (questions, timeLimit, timeRemaining)
+    constructor (questions, timeLimit, timeRemaining){
+        this.questions = questions
+        this.timeLimit = timeLimit
+        this.timeRemaining = timeRemaining
+        this.correctAnswers = 0
+        this.currentQuestionIndex = 0
+    }
 
-    // 2. getQuestion()
+    getQuestion(){
+        return this.questions[this.currentQuestionIndex]
+    }
     
-    // 3. moveToNextQuestion()
+    moveToNextQuestion(){
+        this.currentQuestionIndex++;
+    }
 
-    // 4. shuffleQuestions()
+    shuffleQuestions(){
+        const nuevaLista = []
+        const copyOriginal = this.questions.slice(0)
+        while (copyOriginal.length>0){
+            nuevaLista.push((copyOriginal.splice(Math.floor(Math.random()*copyOriginal.length),1))[0])
+        }
+        this.questions = nuevaLista
+    }
 
-    // 5. checkAnswer(answer)
+    checkAnswer(answer){
+        if (answer === this.questions[this.currentQuestionIndex]["answer"]){
+            this.correctAnswers++;
+        }
+    }
 
-    // 6. hasEnded()
+    hasEnded(){
+        if (this.currentQuestionIndex>=this.questions.length){
+            return true
+        }
+        else if (this.currentQuestionIndex<this.questions.length){
+            return false
+        }
+    }
 }
