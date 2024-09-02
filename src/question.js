@@ -14,19 +14,21 @@ class Question {
         }
     }
     shuffleChoices(){
+        const original = this.choices.slices(0);
         const nuevaLista = []
         while (this.choices.length>0){
-            console.log(this.choices)
-            nuevaLista.push(this.choices.splice(Math.floor(Math.random()*this.choices.length)[0],1))
+            // console.log(this.choices)
+            nuevaLista.push((this.choices.splice(Math.floor(Math.random()*this.choices.length),1))[0])
         }
         this.choices = nuevaLista
     }
 }
 
-let q1 = new Question ("question", ["choice1","choice2","choice3","choice4"], "ans", 2.3)
+let q1 = new Question ("question", ["choice1", "choice2", "choice3", "choice4", "choice5", "choice6", "choice7"], "ans", 2.3)
 console.log(q1)
 q1.shuffleChoices()
-console.log(q1)
+
+console.log(q1.choices.length)
 
 
 
