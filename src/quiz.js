@@ -40,4 +40,17 @@ class Quiz {
             return false
         }
     }
+    filterQuestionsByDifficulty(diff){
+        if (diff === 1 || diff === 2 || diff === 3){
+            this.questions = this.questions.filter((question) => question.difficulty === diff)
+            console.log(this.questions)
+        }
+    }
+    averageDifficulty(){
+      let suma = this.questions.reduce((resultado,index) => resultado + index.difficulty,0)
+      console.log(suma)
+      let promedio = suma / this.questions.length
+      console.log(promedio)
+      return promedio
+    }
 }
