@@ -47,10 +47,10 @@ class Quiz {
         }
     }
     averageDifficulty(){
-      let suma = this.questions.reduce((resultado,index) => resultado + index.difficulty,0)
-      console.log(suma)
-      let promedio = suma / this.questions.length
-      console.log(promedio)
-      return promedio
+        let suma = this.questions.reduce((resultado,index) => resultado + index.difficulty,0)
+        console.log(suma)
+        let promedio = suma / this.questions.length
+        console.log(promedio)
+        return promedio
     }
 }
