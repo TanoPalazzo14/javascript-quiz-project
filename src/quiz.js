@@ -43,14 +43,22 @@ class Quiz {
     filterQuestionsByDifficulty(diff){
         if (diff === 1 || diff === 2 || diff === 3){
             this.questions = this.questions.filter((question) => question.difficulty === diff)
-            console.log(this.questions)
+            // console.log(this.questions)
         }
     }
     averageDifficulty(){
+<<<<<<< HEAD
         let suma = this.questions.reduce((resultado,index) => resultado + index.difficulty,0)
         console.log(suma)
         let promedio = suma / this.questions.length
         console.log(promedio)
         return promedio
+=======
+      let suma = this.questions.reduce((resultado,index) => resultado + index.difficulty, 0)
+    //   console.log(suma)
+      let promedio = suma / this.questions.length
+    //   console.log(promedio)
+      return promedio
+>>>>>>> 5d510ed4ded92e871ce26b62f78d0c73123e3c07
     }
 }
