@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new Question("What is the capital of France?", ["Miami", "Paris", "Oslo", "Rome"], "Paris", 1),
     new Question("Who created JavaScript?", ["Plato", "Brendan Eich", "Lea Verou", "Bill Gates"], "Brendan Eich", 2),
     new Question("What is the mass–energy equivalence equation?", ["E = mc^2", "E = m*c^2", "E = m*c^3", "E = m*c"], "E = mc^2", 3),
+    new Question("Cuantos años tiene Jorge?", ["30", "40", "50", "Esta no es mi edad", "Nunca lo sabremos"], "Esta no es mi edad", 1),
     // Add more questions here
   ];
   const quizDuration = 120; // 120 seconds (2 minutes)
@@ -48,20 +49,37 @@ document.addEventListener("DOMContentLoaded", () => {
   /************  SHOW INITIAL CONTENT  ************/
 
   // Convert the time remaining in seconds to minutes and seconds, and pad the numbers with zeros if needed
-  const minutes = Math.floor(quiz.timeRemaining / 60).toString().padStart(2, "0");
-  const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
-
-  // Display the time remaining in the time remaining container
-  const timeRemainingContainer = document.getElementById("timeRemaining");
-  timeRemainingContainer.innerText = `${minutes}:${seconds}`;
-
+    const minutes = Math.floor(quiz.timeRemaining / 60).toString().padStart(2, "0");
+    const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
+    
+    // Display the time remaining in the time remaining container
+    const timeRemainingContainer = document.getElementById("timeRemaining");
+    timeRemainingContainer.innerHTML = `Remaining Time: <span> ${minutes}:${seconds}</span.`;
+  
   // Show first question
   showQuestion();
-
-
+  temporizador();
+ 
+  
   /************  TIMER  ************/
+  function temporizador(){
+    let timer = setInterval(()=>{
+      quiz.timeRemaining --;
+      const minutes = Math.floor(quiz.timeRemaining / 60).toString().padStart(2, "0");
+      const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
+      timeRemainingContainer.innerHTML = `Remaining Time: <span> ${minutes}:${seconds}</span.`;
+      if (quiz.timeRemaining === 0 || quiz.hasEnded()){
+        clearInterval(timer)
+        showResults();
+        quiz.timeRemaining = quizDuration;
+        const minutes = Math.floor(quiz.timeRemaining / 60).toString().padStart(2, "0");
+        const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
+        timeRemainingContainer.innerHTML = `Remaining Time: <span> ${minutes}:${seconds}</span.`;
+      }
+    }, 1000);
+}
 
-  let timer;
+
 
 
   /************  EVENT LISTENERS  ************/
@@ -206,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     quiz.correctAnswers = 0;
     quiz.shuffleQuestions();
     showQuestion();
+    temporizador();
   });
   
 });
