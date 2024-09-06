@@ -30,8 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
     new Question("What is 2 + 2?", ["3", "4", "5", "6"], "4", 1),
     new Question("What is the capital of France?", ["Miami", "Paris", "Oslo", "Rome"], "Paris", 1),
     new Question("Who created JavaScript?", ["Plato", "Brendan Eich", "Lea Verou", "Bill Gates"], "Brendan Eich", 2),
-    new Question("What is the mass–energy equivalence equation?", ["E = mc^2", "E = m*c^2", "E = m*c^3", "E = m*c"], "E = mc^2", 3),
-    new Question("Cuantos años tiene Jorge?", ["30", "40", "50", "Esta no es mi edad", "Nunca lo sabremos"], "Esta no es mi edad", 1),
+    new Question("What is the mass-energy equivalence equation?", ["E = mc^2", "E = m*c^2", "E = m*c^3", "E = m*c"], "E = mc^2", 3),
+    new Question("Cuantos años tiene Jorge?", ["30", "40", "50", "Esta no es mi edad", "Nunca lo sabremos"], "Esta no es mi edad", 3),
+    new Question("Que significa DOM?", ["Es el apodo de Domonic Toretto", "Dominante", "Documento Obstinado Moderadamente", "Document Object Model"], "Document Object Model", 2),
+    new Question("Cuantas veces muestran como Itachi asesinó al clan uchiha?", ["1", "10", "Infinity", "10*e^10000","Yi ni vi Niriti"], "10*e^10000", 2),
+    new Question("A quien corresponde el nombre \"Zelda\" en el amado videojuego de Nintendo?", ["El personaje principal", "La damicela en apuros", "El enemigo principal", "La espada"], "La damicela en apuros", 2),
+    new Question("Cual es la mejor generación de Pokemon?", ["1", "2", "3", "4", "5"], "1", 3),
+    new Question("Cual es el segundo nombre de Juan?", ["No tiene", "Pedro", "Pablo", "Esteban", "Martin"], "No tiene", 3),
     // Add more questions here
   ];
   const quizDuration = 120; // 120 seconds (2 minutes)
